@@ -9,6 +9,7 @@
 !nvim/
 !nvim/init.lua
 !nvim/installPacks.sh
+!nvim/installLSPs.sh
 !nvim/lua/
 !nvim/lua/**/*
 
