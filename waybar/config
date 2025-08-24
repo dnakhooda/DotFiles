@@ -1,0 +1,106 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": ["custom/launcher", "tray", "network", "cpu", "memory"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["pulseaudio", "backlight", "battery", "clock", "custom/power"],
+	
+	"custom/power": {
+		"format" : "⏻ ",
+			"tooltip": false,
+			"menu": "on-click",
+			"menu-file": "~/.config/waybar/power_menu.xml",
+			"menu-actions": {
+				"shutdown": "shutdown -h now",
+				"reboot": "reboot",
+				"suspend": "systemctl suspend",
+			},
+	},
+
+	"hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "active": "",
+                "default": "",
+                "empty": ""
+            },
+            "persistent-workspaces": {
+                "*": [ 1,2,3,4,5 ]
+            }
+        },
+
+	"tray":{
+		"icons": {
+			"blueman": "bluetooth",
+    			"nm-applet": "/home/daniel/.config/waybar/icons/global-internet.png"
+		},
+		"tooltip": false,
+		"icon-size":16,
+		"spacing": 10
+	},
+
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+
+	"network": {
+		"tooltip": false,
+		"format-wifi": "{essid}",
+		"format-ethernet": ""
+	},
+
+	"backlight": {
+		"tooltip": false,
+		"format": " {percent}%",
+		"device": "intel_backlight",
+		"interval":1,
+        	"on-scroll-up": "brightnessctl set +5%",
+		"on-scroll-down": "brightnessctl set 5%-"
+	},
+
+    	"battery": {
+		"tooltip": false,
+        	"states": {
+            		"good": 95,
+            		"warning": 30,
+            		"critical": 20
+        	},
+		"inverval": 1,
+        	"format": "{icon}  {capacity}%",
+        	"format-charging": " {capacity}%",
+        	"format-plugged": " {capacity}%",
+        	"format-icons": ["", "", "", "", ""]
+    	},
+
+    	"clock": {
+		"tooltip": false,
+        	"format": "{:%I:%M %p  %d/%m/%Y}"
+    	},
+
+    	"cpu": {
+		"tooltip": false,
+        	"interval": 1,
+        	"format": " {usage}%",
+        	"max-length": 10
+    	},
+	"memory": {
+		"tooltip": false,
+		"interval": 1,
+		"format": " {used}%",
+		"max-length": 10
+	},
+
+	"custom/launcher":{
+		"tooltip": false,
+        	"format": " ",
+        	"on-click": "wofi -a --gtk-dark --show drun --style ~/.config/wofi/style.css",
+        	"on-click-right": "killall wofi"
+    	}
+}
