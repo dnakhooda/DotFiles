@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 lsps=(
     "lua-language-server"
     "typescript-language-server"
