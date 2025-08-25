@@ -1,6 +1,6 @@
 {
-	"layer": "top",
-	"position": "top",
+    "layer": "top",
+    "position": "top",
 	"modules-left": ["custom/launcher", "tray", "network", "cpu", "memory"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["pulseaudio", "backlight", "battery", "clock", "custom/power"],
@@ -18,21 +18,21 @@
 	},
 
 	"hyprland/workspaces": {
-            "format": "{icon}",
-            "format-icons": {
-                "active": "",
-                "default": "",
-                "empty": ""
-            },
-            "persistent-workspaces": {
-                "*": [ 1,2,3,4,5 ]
-            }
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
         },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]
+        }
+    },
 
 	"tray":{
 		"icons": {
 			"blueman": "bluetooth",
-    			"nm-applet": "/home/daniel/.config/waybar/images/global-internet.png"
+    		"nm-applet": "/home/daniel/.config/waybar/images/global-internet.png"
 		},
 		"tooltip": false,
 		"icon-size":16,
@@ -61,35 +61,35 @@
 		"format": " {percent}%",
 		"device": "intel_backlight",
 		"interval":1,
-        	"on-scroll-up": "brightnessctl set +5%",
+    	"on-scroll-up": "brightnessctl set +5%",
 		"on-scroll-down": "brightnessctl set 5%-"
 	},
 
     "battery": {
 		"tooltip": false,
-        	"states": {
-            		"good": 95,
-            		"warning": 30,
-            		"critical": 20
-        	},
+        "states": {
+            	"good": 95,
+            	"warning": 30,
+                "critical": 20
+        },
 		"inverval": 1,
-        	"format": "{icon}  {capacity}%",
-        	"format-charging": " {capacity}%",
-        	"format-plugged": " {capacity}%",
-        	"format-icons": ["", "", "", "", ""]
-    	},
+    	"format": "{icon}  {capacity}%",
+       	"format-charging": " {capacity}%",
+       	"format-plugged": " {capacity}%",
+       	"format-icons": ["", "", "", "", ""]
+    },
 
-    	"clock": {
+    "clock": {
 		"tooltip": false,
-        	"format": "{:%I:%M %p  %d/%m/%Y}"
-    	},
+        "format": "{:%I:%M %p  %d/%m/%Y}"
+    },
 
-    	"cpu": {
-		"tooltip": false,
-        	"interval": 1,
-        	"format": " {usage}%",
-        	"max-length": 10
-    	},
+    "cpu": {
+	    "tooltip": false,
+        "interval": 1,
+        "format": " {usage}%",
+        "max-length": 10
+    },
 
 	"memory": {
 		"tooltip": false,
@@ -98,10 +98,10 @@
 		"max-length": 10
 	},
 
-	"custom/launcher":{
+	"custom/launcher": {
 		"tooltip": false,
-        	"format": " ",
-        	"on-click": "wofi -a --gtk-dark --show drun --style ~/.config/wofi/style.css",
-        	"on-click-right": "killall wofi"
-    	}
+        "format": " ",
+        "on-click": "wofi -a --gtk-dark --show drun --style ~/.config/wofi/style.css",
+        "on-click-right": "killall wofi"
+    }
 }
