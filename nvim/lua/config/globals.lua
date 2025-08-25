@@ -1,5 +1,6 @@
 -- Globals
 ----------
+
 vim.g.mapleader = " "
 vim.g.maploclleader = " "
 

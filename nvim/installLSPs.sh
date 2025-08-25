@@ -13,3 +13,5 @@ for lsp in "${lsps[@]}"; do
         sudo pacman -S --noconfirm "$lsp"
     fi
 done
+
+echo "Done..."
