@@ -1,0 +1,39 @@
+#!/bin/bash
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+STATE_FILE="$HOME/.config/current_wallpaper"
+
+pgrep swww >/dev/null || swww init
+
+if [[ "$1" == "--restore" ]]; then
+    if [[ -f "$STATE_FILE" ]]; then
+        last_wallpaper=$(cat "$STATE_FILE")
+        if [[ -f "$WALLPAPER_DIR/$last_wallpaper" ]]; then
+            swww img "$WALLPAPER_DIR/$last_wallpaper"
+            exit 0
+        fi
+    fi
+fi
+
+mapfile -t wallpapers < <(ls "$WALLPAPER_DIR")
+[ ${#wallpapers[@]} -eq 0 ] && exit 1
+
+current=$(cat "$STATE_FILE" 2>/dev/null)
+index=0
+for i in "${!wallpapers[@]}"; do
+    if [[ "${wallpapers[$i]}" == "$current" ]]; then
+        index=$i
+        break
+    fi
+done
+
+next_index=$(( (index + 1) % ${#wallpapers[@]} ))
+next="${wallpapers[$next_index]}"
+
+echo "$next" > "$STATE_FILE"
+
+swww img "$WALLPAPER_DIR/$next" \
+    --transition-type wipe \
+    --transition-angle 45 \
+    --transition-duration 0.75
+
