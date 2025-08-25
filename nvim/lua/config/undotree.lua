@@ -1,4 +1,4 @@
--- UndoTree Config
+-- Undotree
 ------------------
 
 -- Keymaps

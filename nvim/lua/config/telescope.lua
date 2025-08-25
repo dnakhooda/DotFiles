@@ -1,4 +1,4 @@
--- Telescope Config
+-- Telescope
 -------------------
 
 -- Telescope Setup

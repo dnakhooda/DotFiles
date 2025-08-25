@@ -1,4 +1,4 @@
--- Color Scheme
+-- Colors
 ---------------
 
 -- Setup Catppuccin Plugin

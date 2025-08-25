@@ -5,8 +5,8 @@ require("config.keymaps")
 
 -- Plugin Configs
 require("config.lsps")
-require("config.colorscheme")
-require("config.treesitterConfig")
-require("config.telescopeConfig")
-require("config.undotreeConfig")
-require("config.fugitiveConfig")
+require("config.colors")
+require("config.treesitter")
+require("config.telescope")
+require("config.undotree")
+require("config.fugitive")
