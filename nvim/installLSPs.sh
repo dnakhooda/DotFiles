@@ -4,6 +4,7 @@ lsps=(
     "lua-language-server"
     "typescript-language-server"
     "pyright"
+    "clang"
 )
 
 for lsp in "${lsps[@]}"; do
